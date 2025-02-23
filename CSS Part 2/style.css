@@ -6,15 +6,24 @@ div {
 height: 100px;
 width: 200px;
 border: 1px;
-font-size: 1.5rem;
+font-size: 1.1rem; /* Around 17.6px (1rem is typically 16px, so 1.1rem = 17.6px) */
 background-color: red;
-border-radius: 2%;
-margin: auto;
+border-radius: 10px;
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 0 auto;
 padding: 10px;
 text-align: center;
 border: solid darkred 1px;
 color: white;
 text-shadow: black 2px 2px;
 box-shadow: 3px 3px 8px black, inset 2px 2px 5px white, inset -2px -2px 5px black;
+background-image: linear-gradient(
+    to bottom right, 
+    #00000000 0%,  /* Fully transparent */
+    #00000033 30%,  /* Light black */
+    #00000066 100%  /* Darker black */
+);
 }
 
