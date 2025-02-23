@@ -17,8 +17,8 @@ padding: 10px;
 text-align: center;
 border: solid darkred 1px;
 color: white;
-text-shadow: black 2px 2px;
-box-shadow: 3px 3px 8px black, inset 2px 2px 5px white, inset -2px -2px 5px black;
+text-shadow: black 2px 2px; 
+box-shadow: 3px 3px 8px black, inset 2px 2px 5px white, inset -2px -2px 5px black; 
 background-image: linear-gradient(
     to bottom right, 
     #00000000 0%,  /* Fully transparent */
