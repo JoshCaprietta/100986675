@@ -24,14 +24,4 @@ for (let i = 1; i <= 5; i++) {
 }
 
 /* Wiring up the Darken/Lighten button */
-btn.addEventListener('click', () => {
-    if (overlay.style.backgroundColor === 'rgba(0, 0, 0, 0.5)') {
-        overlay.style.backgroundColor = 'rgba(0, 0, 0, 0)'; // Lighten
-        btn.setAttribute("class", "light-mode"); // Change button class
-        btn.textContent = "Darken";
-    } else {
-        overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'; // Darken
-        btn.setAttribute("class", "dark-mode"); // Change button class
-        btn.textContent = "Lighten";
-    }
-});
+
