@@ -18,6 +18,7 @@ function random(min, max) {
 function randomRGB() {
   return `rgb(${random(0, 255)},${random(0, 255)},${random(0, 255)})`;
 }
+// Shape Class
 class Shape {
   constructor(x, y, velX, velY) {
     this.x = x;
@@ -25,6 +26,52 @@ class Shape {
     this.velX = velX;
     this.velY = velY;
 }
+}
+class EvilCircle extends Shape {
+  constructor(x, y,) {
+    super(x, y, 20, 20);
+    this.color = white;
+    this.size = 10;
+
+    window.addEventListener("keydown", (e) => {
+      switch (e.key) {
+        case "a":
+          this.x -= this.velX;
+          break;
+        case "d":
+          this.x += this.velX;
+          break;
+        case "w":
+          this.y -= this.velY;
+          break;
+        case "s":
+          this.y += this.velY;
+          break;
+      }
+    });    
+  }
+  draw() {
+    ctx.beginPath();
+    ctx.strokeStyle = this.color;
+    ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+    ctx.stroke();
+    ctx.lineWidth = 3;
+    ctx.beginPath(3);
+  }
+  checkBounds() {
+    if (this.x - this.size <= 0) {
+      this.x = this.size;
+  }
+  if (this.x + this.size >= width) {
+      this.x = width - this.size;
+  }
+  if (this.y - this.size <= 0) {
+      this.y = this.size;
+  }
+  if (this.y + this.size >= height) {
+      this.y = height - this.size;
+    }
+  }
 }
 // Class for the ball.
 class Ball extends Shape {
