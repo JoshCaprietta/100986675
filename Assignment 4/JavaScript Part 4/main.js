@@ -79,12 +79,11 @@ collisionDetect() {
     }
   }
 }
-// Animates the ball to bounce.
 }
 class EvilCircle extends Shape {
   constructor(x, y,) {
     super(x, y, 20, 20);
-    this.color = 'white';
+    this.color = white;
     this.size = 10;
 
     window.addEventListener("keydown", (e) => {
@@ -140,6 +139,7 @@ class EvilCircle extends Shape {
     }
   }
 }
+// Animates the ball to bounce.
 const balls = [];
 
 while (balls.length < 25) {
