@@ -1,47 +1,50 @@
-// functionality for showing/hiding the comments section
+// Toggle visibility of the comments section
+const toggleBtn = document.querySelector('.show-hide');
+const commentSection = document.querySelector('.comment-wrapper');
 
-const showHideBtn = document.querySelector('.show-hide');
-const commentWrapper = document.querySelector('.comment-wrapper');
+if (toggleBtn && commentSection) {
+  commentSection.style.display = 'none';
 
-commentWrapper.style.display = 'none';
+  toggleBtn.addEventListener('click', () => {
+    const isHidden = commentSection.style.display === 'none';
+    commentSection.style.display = isHidden ? 'block' : 'none';
+    toggleBtn.textContent = isHidden ? 'Hide comments' : 'Show comments';
+  });
+}
 
-showHideBtn.onclick = function() {
-  let showHideText = showHideBtn.textContent;
-  if(showHideText === 'Show comments') {
-    showHideBtn.textContent = 'Hide comments';
-    commentWrapper.style.display = 'block';
-  } else {
-    showHideBtn.textContent = 'Show comments';
-    commentWrapper.style.display = 'none';
+// Handle comment form submission
+const commentForm = document.querySelector('.comment-form');
+const nameInput = document.querySelector('#name');
+const commentInput = document.querySelector('#comment');
+const commentList = document.querySelector('.comment-container');
+
+if (commentForm) {
+  commentForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    addComment();
+  });
+}
+
+function addComment() {
+  const name = nameInput.value.trim();
+  const comment = commentInput.value.trim();
+
+  if (!name || !comment) {
+    alert('Please enter both your name and comment.');
+    return;
   }
-};
 
-// functionality for adding a new comment via the comments form
-
-const form = document.querySelector('.comment-form');
-const nameField = document.querySelector('#name');
-const commentField = document.querySelector('#comment');
-const list = document.querySelector('.comment-container');
-
-form.onsubmit = function(e) {
-  e.preventDefault();
-  submitComment();
-};
-
-function submitComment() {
   const listItem = document.createElement('li');
-  const namePara = document.createElement('p');
-  const commentPara = document.createElement('p');
-  const nameValue = nameField.value;
-  const commentValue = commentField.value;
+  const nameEl = document.createElement('p');
+  const commentEl = document.createElement('p');
 
-  namePara.textContent = nameValue;
-  commentPara.textContent = commentValue;
+  nameEl.textContent = name;
+  commentEl.textContent = comment;
 
-  list.appendChild(listItem);
-  listItem.appendChild(namePara);
-  listItem.appendChild(commentPara);
+  listItem.appendChild(nameEl);
+  listItem.appendChild(commentEl);
+  commentList.appendChild(listItem);
 
-  nameField.value = '';
-  commentField.value = '';
+  nameInput.value = '';
+  commentInput.value = '';
 }
