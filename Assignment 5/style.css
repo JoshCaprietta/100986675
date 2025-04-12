@@ -1,57 +1,53 @@
-/* || General setup */
-
+/* Base Reset & Body Layout */
 html, body {
   margin: 0;
   padding: 0;
 }
 
 html {
-  font-size: 10px;
+  font-size: 62.5%; /* 1rem = 10px */
   background-color: #dde;
 }
 
 body {
-  width: 80%;
-  min-width: 1024px;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 1rem;
 }
 
-/* || typography */
+/* || Typography */
 
-font[size="7"], font[size="6"], font[size="5"] {
+h1, h2, h3 {
   font-family: 'Sonsie One', cursive;
   color: #2a2a2a;
 }
 
-p, input, li, table, label {
-  font-family: 'Open Sans Condensed', sans-serif;
-  color: #2a2a2a;
-}
-
-font[size="7"] {
+h1 {
   font-size: 4rem;
   text-align: center;
   color: white;
   text-shadow: 2px 2px 10px black;
 }
 
-font[size="6"] {
+h2 {
   font-size: 3rem;
   text-align: center;
 }
 
-font[size="5"] {
+h3 {
   font-size: 2.2rem;
 }
 
-p, li, table {
+p, input, li, table, label {
+  font-family: 'Open Sans Condensed', sans-serif;
   font-size: 1.6rem;
   line-height: 1.5;
+  color: #2a2a2a;
 }
 
-/* || header layout */
+/* || Header Layout */
 
-div[class="nav"], article, footer, .secondary {
+.nav, article, footer, .secondary {
   background-color: white;
 }
 
@@ -63,28 +59,28 @@ article {
   margin-right: 10px;
 }
 
-div[class="nav"] {
+.nav {
   height: 50px;
-  background-color: ff80ff;
+  background-color: #ff80ff;
   display: flex;
   padding: 1% 0;
   margin-bottom: 10px;
 }
 
-div[class="nav"] ul {
+.nav ul {
   padding: 0;
   list-style-type: none;
   flex: 2;
   display: flex;
 }
 
-div[class="nav"] li {
+.nav li {
   display: inline;
   text-align: center;
   flex: 1;
 }
 
-div[class="nav"] a {
+.nav a {
   display: inline-block;
   font-size: 2rem;
   text-transform: uppercase;
@@ -92,7 +88,7 @@ div[class="nav"] a {
   color: black;
 }
 
-div[class="nav"] .search {
+.nav .search {
   flex: 1;
   display: flex;
   align-items: center;
@@ -115,12 +111,15 @@ div[class="nav"] .search {
   background: #333;
   border: 0;
   color: white;
+  cursor: pointer;
 }
 
-/* || main layout */
+/* || Main Layout */
 
 main {
   display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 article {
@@ -133,9 +132,10 @@ article {
 
 footer {
   margin-top: 10px;
+  text-align: center;
 }
 
-/* Table styling */
+/* || Table Styling */
 
 table {
   width: 100%;
@@ -145,9 +145,6 @@ table {
 
 th, td {
   padding: 10px;
-}
-
-td {
   text-align: center;
 }
 
@@ -159,7 +156,7 @@ tbody tr:nth-child(odd) {
   background-color: #def;
 }
 
-/* styling content images and audio */
+/* || Media Elements */
 
 img, audio {
   display: block;
@@ -168,9 +165,10 @@ img, audio {
 
 audio {
   width: 500px;
+  max-width: 100%;
 }
 
-/* Comments styling */
+/* || Comments Section */
 
 .comments {
   background-color: #def;
@@ -178,15 +176,16 @@ audio {
 }
 
 .show-hide {
+  text-align: center;
+  width: 150px;
+  background: #333;
+  color: white;
   cursor: pointer;
-}
-
-.comments font[size="6"] {
-  font-size: 2rem;
-}
-
-.comments font[size="6"]:nth-of-type(2) {
-  margin-bottom: 0;
+  font-size: 1.6rem;
+  line-height: 32px;
+  margin: 0 auto 2rem;
+  padding: 0.5rem;
+  border-radius: 5px;
 }
 
 .comment-form {
@@ -196,10 +195,10 @@ audio {
 .comment-form .flex-pair {
   display: flex;
   padding: 0 3rem 1rem;
+  align-items: center;
 }
 
 .comment-form label {
-  align-self: center;
   flex: 2;
   text-align: right;
 }
@@ -207,28 +206,20 @@ audio {
 .comment-form input {
   margin-left: 1rem;
   flex: 6;
-}
-
-.show-hide {
-  text-align: center;
-  width: 150px;
-}
-
-.comment-form input, .comment-form label, .show-hide {
   font-size: 1.6rem;
   line-height: 32px;
-}
-
-.comment-form input[type="submit"], .show-hide {
-  background: #333;
-  border: 0;
-  color: white;
+  padding: 0.5rem;
 }
 
 .comment-form input[type="submit"] {
   width: 30%;
-  display: block;
+  background: #333;
+  color: white;
+  border: none;
   margin: 0 auto;
+  display: block;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .comment-container {
@@ -238,6 +229,7 @@ audio {
 .comment-container li {
   list-style-type: none;
   display: flex;
+  padding: 0.5rem 0;
 }
 
 .comment-container li p:nth-child(1) {
@@ -247,4 +239,13 @@ audio {
 
 .comment-container li p:nth-child(2) {
   flex: 5;
+}
+
+/* || Focus Styles for Accessibility */
+
+a:focus,
+input:focus,
+button:focus {
+  outline: 2px solid #005fcc;
+  outline-offset: 2px;
 }
